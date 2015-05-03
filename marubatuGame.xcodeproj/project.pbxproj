@@ -15,6 +15,9 @@
 		4DEB319C1AE1585A00D150AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DEB319B1AE1585A00D150AF /* Images.xcassets */; };
 		4DEB319F1AE1585A00D150AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DEB319D1AE1585A00D150AF /* LaunchScreen.xib */; };
 		4DEB31AB1AE1585A00D150AF /* marubatuGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEB31AA1AE1585A00D150AF /* marubatuGameTests.swift */; };
+		4DEB31B51AE1595A00D150AF /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEB31B41AE1595A00D150AF /* bg.png */; };
+		4DEB31B71AE15C1B00D150AF /* o.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEB31B61AE15C1B00D150AF /* o.png */; };
+		4DEB31B91AE15C2200D150AF /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DEB31B81AE15C2200D150AF /* x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		4DEB31A41AE1585A00D150AF /* marubatuGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = marubatuGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DEB31A91AE1585A00D150AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DEB31AA1AE1585A00D150AF /* marubatuGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = marubatuGameTests.swift; sourceTree = "<group>"; };
+		4DEB31B41AE1595A00D150AF /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		4DEB31B61AE15C1B00D150AF /* o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = o.png; sourceTree = "<group>"; };
+		4DEB31B81AE15C2200D150AF /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				4DEB318F1AE1585A00D150AF /* Info.plist */,
+				4DEB31B81AE15C2200D150AF /* x.png */,
+				4DEB31B61AE15C1B00D150AF /* o.png */,
+				4DEB31B41AE1595A00D150AF /* bg.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -198,8 +207,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DEB31B51AE1595A00D150AF /* bg.png in Resources */,
 				4DEB319F1AE1585A00D150AF /* LaunchScreen.xib in Resources */,
+				4DEB31B91AE15C2200D150AF /* x.png in Resources */,
 				4DEB319C1AE1585A00D150AF /* Images.xcassets in Resources */,
+				4DEB31B71AE15C1B00D150AF /* o.png in Resources */,
 				4DEB31931AE1585A00D150AF /* GameScene.sks in Resources */,
 				4DEB319A1AE1585A00D150AF /* Main.storyboard in Resources */,
 			);
