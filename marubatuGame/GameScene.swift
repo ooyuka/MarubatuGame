@@ -9,37 +9,47 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)
+    var turn_o = true
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("NSCoder not supported")
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        /* Called when a touch begins */
+    override init(size: CGSize) {
+        super.init(size: size)
         
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        anchorPoint = CGPoint(x: 0, y: 0)
+        
+        let background = SKSpriteNode(imageNamed: "bg")
+        background.position = CGPoint(x: 0, y: 0)
+        background.anchorPoint = CGPoint(x: 0, y: 0)
+        addChild(background)
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+    }
+    
+    func transform(w: CGFloat) -> CGFloat {
+        switch w {
+        case let w where 0 < w && w < 80:
+            return 0
+        case let w where 80 < w && w < 160:
+            return 80
+        case let w where 160 < w && w < 240:
+            return 160
+        default:
+            return -80
+        }
+    }
+    
+    func mark(location: CGPoint) {
+        let imageName = turn_o ? "o" : "x"
+        let sign = SKSpriteNode(imageNamed: imageName)
+        sign.position = CGPoint(x: transform(location.x), y: 160 - transform(location.y - 320))
+        sign.anchorPoint = CGPoint(x: 0, y: 0)
+        addChild(sign)
+        
+        turn_o = !turn_o
     }
 }
