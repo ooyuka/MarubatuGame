@@ -18,11 +18,12 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        anchorPoint = CGPoint(x: 0, y: 0)
+        backgroundColor = SKColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        //背景色を変更
         
         let background = SKSpriteNode(imageNamed: "bg")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 0)
+        background.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        //bg.pngを画面中央に表示
         addChild(background)
     }
     
@@ -30,24 +31,40 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
     }
     
-    func transform(w: CGFloat) -> CGFloat {
+    
+    //x座標とy座標をそれぞれ取得
+    func transformX(w: CGFloat) -> CGFloat {
         switch w {
-        case let w where 0 < w && w < 80:
-            return 0
-        case let w where 80 < w && w < 160:
-            return 80
-        case let w where 160 < w && w < 240:
-            return 160
+        case let w where self.size.width/2-150 < w && self.size.width/2-50 > w:
+            return self.size.width/2-100
+        case let w where self.size.width/2-50 < w && self.size.width/2+50 > w:
+            return self.size.width/2-15
+        case let w where self.size.width/2+50 < w && self.size.width/2+150 > w:
+            return self.size.width/2+70
         default:
-            return -80
+            return -100
+        }
+    }
+    
+    func transformY(w: CGFloat) -> CGFloat {
+        switch w {
+        case let w where self.size.height/2-150 < w && self.size.height/2-50 > w:
+            return self.size.height/2+80
+        case let w where self.size.height/2-50 < w && self.size.height/2+50 > w:
+            return self.size.height/2
+        case let w where self.size.height/2+50 < w && self.size.height/2+150 > w:
+            return self.size.height/2-80
+        default:
+            return -100
         }
     }
     
     func mark(location: CGPoint) {
         let imageName = turn_o ? "o" : "x"
         let sign = SKSpriteNode(imageNamed: imageName)
-        sign.position = CGPoint(x: transform(location.x), y: 160 - transform(location.y - 320))
-        sign.anchorPoint = CGPoint(x: 0, y: 0)
+        
+        sign.position = CGPoint(x: transformX(location.x), y: transformY(location.y))
+        
         addChild(sign)
         
         turn_o = !turn_o
